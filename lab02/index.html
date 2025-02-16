@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+        <link rel="stylesheet" href="styles/main.css">
+       <title>Laboratorio 1 y 2</title>
+   </head>
+   <body>
+        <div class="container">
+            <header><small><em>Edmundo Canedo Cervantes - A01645576</em></small></header>
+            <h1 class="highlight" id="lab01">Laboratorio 1 y 2</h1>
+            <h3 class="highlight">Índice:</h3>
+
+            <nav>
+                <ul>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#preguntas">Preguntas</a></li>
+                    <li><a href="#controles">Forma con controles</a></li>
+                    <li><a href="#referencias">Referencias</a></li>
+                </ul>
+            </nav>
+            
+            <section>
+                <h2 class="highlight" id="sobre-mi">Sobre mí:</h2>
+                <ul class="list">
+                    <li>Mi nombre es: <strong class="highlight">Edmundo Canedo Cervantes</strong>.</li>
+                    <li>Mi matrícula es: <strong class="highlight">A01645576</strong>.</li>
+                    <li>Mi correo institucional es: <strong class="highlight">A01645576@tec.mx</strong>.</li>
+                    <li>Mi correo personal es: <strong class="highlight">edcance.dev@gmail.com</strong>.</li>
+                </ul>
+
+                <h3 class="highlight">Proyectos:</h3>
+                <p>He trabajado mayormente con desarrollo web, sin embargo, aún no he usado ningún framework; todos mis proyectos han sido con PHP, HTML, CSS y JS puros. De la misma manera he usado SQL al trabajar con bases de datos relacionales.</p>
+                <p>Algunos de los proyectos que en los que he participado son los siguientes:</p>
+                <ul class="list">
+                    <li><a href="https://github.com/EdCanCe/ACSI">ACSI</a> un administrador de centros de salud institucionales.</li>
+                    <li><a href="https://github.com/EdCanCe/DeltaTrain">DeltaTrain</a> una red social para deportistas.</li>
+                    <li><a href="https://github.com/EdCanCe/ProyectoIoT">Airalyze</a> un sistema que recopila y muestra algunos datos de las carpinterías de los carpinteros.</li>
+                    <li><a href="https://edcance.dev/">Mi portafolio</a>.</li>
+                </ul>
+
+                <h3 class="highlight">Aficiones:</h3>
+                <p>Mis aficiones son variadas, sin embargo tengo cierto gusto por los siguientes elementos:</p>
+                <ul class="list">
+                    <li>GNU/Linux.</li>
+                    <li>Leer manga y ver anime.</li>
+                    <li>Música en general, literalmente soy el que escucha todo menos reguetón xD.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="highlight" id="preguntas">Preguntas:</h2>
+
+                <ol class="list">
+
+                    <li><strong class="highlight"><em>¿Cuál es la diferencia entre Internet y la World Wide Web?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>El internet es una red mundial, la cual usa varios protocolos, mientras que la World Wide Web es el sistema que interconecta muchísimas páginas web a través del mismo internet.</p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Cuáles son las partes de un URL?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Primeramente tiene un protocolo, el cuál es el método por el cuál se van a intercambiar los datos. Posteriormente sigue el dominio, el cuál representa el servidor web al cuál se le solicitaron los datos. En caso de que se quiera acceder acceder a un puerto en específico, se tendría que poner 2 puntos, y posteriormente el número del puerto a acceder, en caso de que no se especifique el puerto de entrada, se usaría el puerto 443 para HTTPS y 80 para HTTP. Después está la ruta, que antes representaba la dirección de un archivo, sin embargo, hoy en día es una abstracción que manejan los servidores. Casi para finalizar se encuentran los parámetros, los cuales son una lista de variables con valores; se separan con un ampersand(&). El último elemento de una URL son las anclas, éstas representan un punto o marcador en la página, éste es usado para que cuando se cargue la página, el navegador se desplace hasta dicho punto.</p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Cada método realiza una función diferente, éstos son sus propósitos:</p>
+                            <ul class="list"><li><strong class="highlight">GET:</strong>Solicita un recurso en específico al servidor, es decir, únicamente obtienen datos.</li></ul>
+                            <ul class="list"><li><strong class="highlight">HEAD:</strong>Muy parecido al método GET, obtiene datos, sin embargo, obtiene únicamente la cabeza de la respuesta, sin el cuerpo.</li></ul>
+                            <ul class="list"><li><strong class="highlight">POST:</strong>Su función es enviar datos al servidor, donde muchas veces efectúa algún cambio en el servidor.</li></ul>
+                            <ul class="list"><li><strong class="highlight">PUT:</strong>Es usado para añadir, o en caso de ya existir un elemento destino, reemplazarlo.</li></ul>
+                            <ul class="list"><li><strong class="highlight">PATCH:</strong>Éste método es usado para modificar parcialmente un recurso.</li></ul>
+                            <ul class="list"><li><strong class="highlight">DELETE:</strong>Como indica su nombre, es usado para borrar un elemento.</li></ul>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>El método POST, ya que tiene que el método tiene que ser un método seguro, porque si se usara un método como el GET, datos sensibles como la contraseña se podrían ver comprometidos, ya que en el método GET, los datos saldrían en la barra de direcciones.</p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Utilizan el método GET, ya que están solicitándole al servidor donde se aloja dicha página, los datos de la misma.</p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Significa un "ok", e otras palabras, que no ha sucedido ningún error y que la solicitud fue exitosa.</p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>No necesariamente, en algunos casos si. Primeramente se tiene que definir que el error 404 significa que no se ha encontrado el recurso solicitado. En el caso de que el usuario le haya presionado a un botón o enlace dentro de la aplicación web, y eso lo llevó al error, entonces SI se tendría que corregir, ya que la misma aplicación estaría llevándolo a un vínculo roto el cuál no existe. En caso de que el sitio al que intentó acceder el usuario lo colocó él mismo en le URL, entonces no se tendría que corregir nada, ya que el mismo usuario fue el que intentó acceder a algo que no existe.</p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Si, el error 500 significa que tuvo algún tipo de error interno en el servidor, por lo que el desarrollador tendría que configurar el servidor de manera correcta para poder prevenir este tipo de errores.</p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Significa que es un elemento el cuál no es recomendado su uso debido a que dicho elemento podría llegar a ser removido y llegue a perder compatibilidad con los navegadores.</p>
+                            <p>Algunos de éstos elementos son:</p>
+                            <ul class="list">
+                                <li><strong class="highlight">font:</strong> especificaba la fuente a usar en la página, junto con su color y tamaño.</li>
+                                <li><strong class="highlight">center:</strong> centraba un texto.</li>
+                                <li><strong class="highlight">big:</strong> definía un texto en un tamaño grande.</li>
+                                <li><strong class="highlight">u:</strong> subrayaba el texto dentro de ésta etiqueta.</li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>En primera instancia, hay nuevas etiquetas que tienen distintas funciones cada una, sin embargo, hay más diferencias, tales como:</p>
+                            <ul class="list">
+                                <li>HTML4 no tiene soporte para audio y video mientras HTML5 si.</li>
+                                <li>HTML4 era compatible con vectores como Flash y VML, mientras que HTML5 es compatible con SVG, canvas y otros elementos vectoriales.</li>
+                                <li>HTML5 permite crear diversas figuras, como rectángulos, triángulos o círculos, mientras que HTML4 no.</li>
+                                <li>La ejecución de JavaScript en HTML5 se realiza en hilos separados, mientras que en HTML4 se ejecutan en el mismo.</li>
+                                <li>HTML4 usaba únicamente las cookies y el caché del navegador para almacenar información de forma temporal; HTML5 usa la misma base de datos de la página, el almacenamiento local y el caché.</li>
+                                <li>HTML5 soporta los caracteres de UTF-8, mientras que HTML4 usa la codificación de caracteres de ASCII.</li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Qué componentes de estructura y estilo tiene una tabla?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Dentro de una tabla existen varios componentes, los cuales son los siguentes:</p>
+                            <table>
+                                <caption>
+                                    Elementos de una tabla.
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th>Elemento</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>capiton</td>
+                                        <td>Describe el propósito de la tabla, puede ayudar a los usuarios a decidir si ver o no dicha tabla.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>thead</td>
+                                        <td>Contiene los elementos de la primera fila de la tabla, en otras palabras, su cabeza.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>colgroup</td>
+                                        <td>Como dice su nombre, es usado para definir un grupo de columnas</td>
+                                    </tr>
+                                    <tr>
+                                        <td>col</td>
+                                        <td>Definen las columnas que se tendrán dentro de colgroup.</td>
+                                    </tr>  
+                                    <tr>
+                                        <td>th</td>
+                                        <td>Son las etiquetas usadas en las celdas de la cabeza de la tabla.</td>
+                                    </tr>  
+                                    <tr>
+                                        <td>tbody</td>
+                                        <td>Contiene los elementos del cuerpo de la tabla.</td>
+                                    </tr>  
+                                    <tr>
+                                        <td>tr</td>
+                                        <td>Son las etiquetas usadas para definir las filas en una tabla.</td>
+                                    </tr>  
+                                    <tr>
+                                        <td>td</td>
+                                        <td>Son las etiquetas usadas en las celdas del cuerpo de la tabla.</td>
+                                    </tr>  
+                                    <tr>
+                                        <td>tfoot</td>
+                                        <td>Contiene los elementos de la última fila de la tabla, en otras palabras, el pie de la tabla.</td>
+                                    </tr>  
+                                </tbody>
+                            </table>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Cuáles son los principales controles de una forma HTML5?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Los controles de forma son los elementos usados para ingresar información en los formularios, algunos de éstos son:</p>
+                            <ul class="list">
+                                <li><strong class="highlight">button:</strong> Un botón.</li>
+                                <li><strong class="highlight">checkbox:</strong> Campo donde se puede seleccionar entre un valor activado y desactivado.</li>
+                                <li><strong class="highlight">radio:</strong> Campo donde se escoje un valor entre varios datos más.</li>
+                                <li><strong class="highlight">file:</strong> Campo donde se sube un archivo.</li>
+                                <li><strong class="highlight">text:</strong> Campo donde se escribe texto.</li>
+                                <li><strong class="highlight">password:</strong> Campo donde se escribe texto, sin embargo, debido a que es una contraseña, no se ven los caracteres que se escriben.</li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Yo uso FireFox. Revisando en Can I Use puedo ver que mi navegador soporta la mayoría de etiquetas, mientras que algunas tienen soporte parcial, y muy pocas no están soportadas, indincando que tiene un buen soporte.</p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Cuál es el ciclo de vida de los sistemas de información?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>Los sistemas de información pasan por una serie de fases, las cuales se pueden considerar su ciclo de vida, las cuales son las siguiente:</p>
+                            <ul class="list">
+                                <li>Planificación</li>
+                                <li>Análisis</li>
+                                <li>Diseño</li>
+                                <li>Implementación</li>
+                                <li>Pruebas</li>
+                                <li>Despliegue</li>
+                                <li>Mantenimiento</li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>¿Cuál es el ciclo de desarrollo de sistemas de información?</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p>El ciclo de desarrollo en los sistemas de información son los procesos que los equipos usan para diseñar y desarrollar software, sus fases son las siguientes:</p>
+                            <ul class="list">
+                                <li>Planificación</li>
+                                <li>Diseño</li>
+                                <li>Implementación</li>
+                                <li>Pruebas</li>
+                                <li>Instalación</li>
+                                <li>Mantenimiento</li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>Pregunta</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p></p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>Pregunta</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p></p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>Pregunta</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p></p>
+                        </details>
+                    </li>
+
+                    <li><strong class="highlight"><em>Pregunta</em></strong>
+                        <details>
+                            <summary><small>Respuesta:</small></summary>
+                            <p></p>
+                        </details>
+                    </li>
+
+                </ol>
+            </section>
+
+
+            <section>
+                <h2 class="highlight" id="controles">Forma con controles</h2>
+                <video id="video" controls>
+                    <source src="../media/archspeedrun.mp4">
+                </video>
+            </section>
+
+            <section id="contenedor-referncias">
+                <h2 class="highlight" id="referencias">Referencias:</h2>
+
+                <p>Internet - Glosario de MDN Web Docs: Definiciones de términos relacionados con la Web | MDN. (2023, November 13). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Glossary/Internet">https://developer.mozilla.org/es/docs/Glossary/Internet</a></p>
+                <p>World Wide Web - Glosario de MDN Web Docs: Definiciones de términos relacionados con la Web | MDN. (n.d.). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Glossary/World_Wide_Web">https://developer.mozilla.org/es/docs/Glossary/World_Wide_Web</a></p>
+                <p>¿Qué es una URL? - Aprende desarrollo web | MDN. (n.d.). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL">https://developer.mozilla.org/es/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL</a></p>
+                <p>Métodos de petición HTTP - HTTP | MDN. (2023, July 24). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Methods">https://developer.mozilla.org/es/docs/Web/HTTP/Methods</a></p>
+                <p>Sending form data - Aprende desarrollo web | MDN. (n.d.). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data">https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data</a></p>
+                <p>200 OK - HTTP | MDN. (2023b, February 23). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Status/200">https://developer.mozilla.org/es/docs/Web/HTTP/Status/200</a></p>
+                <p>404 not found - HTTP | MDN. (2024, July 28). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Status/404">https://developer.mozilla.org/es/docs/Web/HTTP/Status/404</a></p>
+                <p>500 Internal Server Error - HTTP | MDN. (2023, February 16). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Status/500">https://developer.mozilla.org/es/docs/Web/HTTP/Status/500</a></p>
+                <p>Experimental, deprecated, and obsolete - MDN Web Docs | MDN. (2025, January 31). MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete">https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete</a></p>
+                <p>GeeksforGeeks. (2021, August 25). What are the HTML tags that deprecated in HTML5 ? GeeksforGeeks. <a href="https://www.geeksforgeeks.org/what-are-the-html-tags-that-deprecated-in-html5/">https://www.geeksforgeeks.org/what-are-the-html-tags-that-deprecated-in-html5/</a></p>
+                <p>Boada, D., & Boada, D. (2025, January 16). La diferencia entre HTML y HTML5. Tutoriales Hostinger. <a href="https://www.hostinger.mx/tutoriales/diferencia-entre-html-y-html5">https://www.hostinger.mx/tutoriales/diferencia-entre-html-y-html5</a></p>
+                <p>: The Table element - HTML: HyperText Markup Language | MDN. (2025, February 12). MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table</a></p>
+                <p>Controles de formulario originales - Aprende desarrollo web | MDN. (n.d.). MDN Web Docs. <a href="https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls">https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls</a></p>
+                <p>Can I use. . . Support tables for HTML5, CSS3, etc. (n.d.). <a href="https://caniuse.com/?compare=firefox+135&compareCats=all#results">https://caniuse.com/?compare=firefox+135&compareCats=all#results</a></p>
+                <p>Guerrero, A. C. (2015, July 20). Ciclo de vida de un sistema de información • gestiopolis. Gestiopolis. <a href="https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/">https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/</a></p>
+                <p>¿Qué es el SDLC? - Explicación del ciclo de vida del desarrollo de software - AWS. (n.d.). Amazon Web Services, Inc. <a href="https://aws.amazon.com/es/what-is/sdlc/">https://aws.amazon.com/es/what-is/sdlc/</a></p>
+
+            </section>
+
+            <footer><small><em>Para realizar esta página, se utilizó <a href="https://code.visualstudio.com/">Visual Studio Code</a></em></small></footer>
+        </div>
+   </body>         
+</html>
