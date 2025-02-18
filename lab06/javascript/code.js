@@ -14,10 +14,6 @@ const mostrarEscribe1 = () => {
     comentarioFinal.classList.remove("block");
 }
 
-const mostrarEscribe2 = () => {
-    
-}
-
 const verificarContrasena = (contrasena) => {
     if(contrasena.length <= 8) return false;
     if(/\s/.test(contrasena)) return false;
@@ -33,7 +29,7 @@ const guardarcontrasenaContainer1 = () => {
         contrasenaContainer2.classList.remove("hidden");
         contrasenaContainer2.classList.add("block");
     }else{
-        alert("La contraseña no puede llevar espacios, tiene que llevar más de 8 caracteres, llevar al menor una mayúscula, una minúscula y un caracter especial");
+        alert("La contraseña no puede llevar espacios, tiene que llevar más de 8 caracteres, llevar al menos una mayúscula, una minúscula y un caracter especial");
     }
 }
 
