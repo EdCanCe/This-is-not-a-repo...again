@@ -7,28 +7,48 @@ const contrasena2 = document.getElementById("contrasena-2");
 const contrasenaStatus2 = document.getElementById("contrasena-2-status");
 const comentarioFinal = document.getElementById("comentario-final-contrasena");
 
+const mostrarElemento = (elemento) => {
+    elemento.classList.add("block");
+    elemento.classList.remove("hidden");
+}
+
+const ocultarElemento = (elemento) => {
+    elemento.classList.remove("block");
+    elemento.classList.add("hidden");
+}
+
+const validarGuia = (elemento, mensaje) => {
+    elemento.classList.remove("text-rose-600");
+    elemento.classList.add("text-emerald-600");
+    elemento.innerHTML = mensaje;
+}
+
+const invalidarGuia = (elemento, mensaje) => {
+    elemento.classList.add("text-rose-600");
+    elemento.classList.remove("text-emerald-600");
+    elemento.innerHTML = mensaje;
+}
+
+const habilitarInput = (elemento) => {
+    elemento.disabled = false;
+    elemento.value = "";
+    elemento.classList.remove("text-neutral-700");
+}
+
+const inhabilitarInput = (elemento) => {
+    elemento.disabled = true;
+    elemento.classList.add("text-neutral-700");
+}
+
 const mostrarEscribe1 = () => {
-    boton.classList.add("hidden");
-    contrasena2.disabled = false;
-    contrasena2.value = "";
-    contrasenaContainer2.classList.remove("block");
-    contrasenaContainer2.classList.add("hidden");
-    contrasena1.disabled = false;
-    contrasena1.value = "";
-    contrasenaContainer1.classList.remove("block");
-    contrasenaContainer1.classList.add("hidden");
-    contrasenaContainer1.classList.remove("hidden");
-    contrasenaContainer1.classList.add("block");
-    comentarioFinal.classList.add("hidden");
-    comentarioFinal.classList.remove("block");
-    contrasenaStatus1.classList.remove("text-emerald-600");
-    contrasenaStatus1.classList.add("text-rose-600");
-    contrasenaStatus1.innerHTML = "NO VALIDA";
-    contrasena1.classList.remove("text-neutral-700");
-    contrasenaStatus2.classList.remove("text-emerald-600");
-    contrasenaStatus2.classList.add("text-rose-600");
-    contrasenaStatus2.innerHTML = "CONTRASEÑAS DISTINTAS";
-    contrasena2.classList.remove("text-neutral-700");
+    ocultarElemento(boton);
+    mostrarElemento(contrasenaContainer1);
+    habilitarInput(contrasena1);
+    invalidarGuia(contrasenaStatus1, "NO VÁLIDA");
+    ocultarElemento(contrasenaContainer2);
+    habilitarInput(contrasena2);
+    invalidarGuia(contrasenaStatus2, "CONTRASEÑAS DISTINTAS");
+    ocultarElemento(comentarioFinal);
 }
 
 const verificarContrasena = (contrasena) => {
@@ -42,11 +62,9 @@ const verificarContrasena = (contrasena) => {
 
 const guardarcontrasenaContainer1 = () => {
     if(verificarContrasena(contrasena1.value)){
-        contrasena1.disabled = true;
-        contrasenaContainer2.classList.remove("hidden");
-        contrasenaContainer2.classList.add("block");
-        contrasena1.classList.add("text-neutral-700");
+        inhabilitarInput(contrasena1);
         contrasenaStatus1.innerHTML = "";
+        mostrarElemento(contrasenaContainer2);
     }else{
         alert("La contraseña no puede llevar espacios, tiene que llevar más de 8 caracteres, llevar al menos una mayúscula, una minúscula y un caracter especial");
     }
@@ -54,47 +72,30 @@ const guardarcontrasenaContainer1 = () => {
 
 const guardarcontrasenaContainer2 = () => {
     if(contrasena1.value == contrasena2.value){
-        contrasena2.disabled = true;
-        comentarioFinal.classList.remove("hidden");
-        comentarioFinal.classList.add("block");
-        contrasenaStatus1.innerHTML = "";
-        contrasena2.classList.add("text-neutral-700");
+        inhabilitarInput(contrasena2);
+        contrasenaStatus2.innerHTML = "";
+        mostrarElemento(comentarioFinal);
     }else{
         alert("Las contraseñas no son iguales. Borrando...");
-        contrasena2.disabled = false;
-        contrasena2.value = "";
-        contrasenaContainer2.classList.remove("block");
-        contrasenaContainer2.classList.add("hidden");
-        contrasena1.disabled = false;
-        contrasena1.value = "";
-        contrasenaContainer1.classList.remove("block");
-        contrasenaContainer1.classList.add("hidden");
+        ocultarElemento(contrasenaContainer1);
+        ocultarElemento(contrasenaContainer2);
     }
-    boton.classList.add("block");
-    boton.classList.remove("hidden");
+    mostrarElemento(boton);
 }
 
 const verificarContrasena1 = () => {
     if(verificarContrasena(contrasena1.value)){
-        contrasenaStatus1.classList.remove("text-rose-600");
-        contrasenaStatus1.classList.add("text-emerald-600");
-        contrasenaStatus1.innerHTML = "VÁLIDA";
+        validarGuia(contrasenaStatus1, "VÁLIDA");
     }else{
-        contrasenaStatus1.classList.add("text-rose-600");
-        contrasenaStatus1.classList.remove("text-emerald-600");
-        contrasenaStatus1.innerHTML = "NO VALIDA";
+        invalidarGuia(contrasenaStatus1, "NO VÁLIDA");
     }
 }
 
 const verificarContrasena2 = () => {
-    if(contrasena2.value == contrasena1.value){
-        contrasenaStatus2.classList.remove("text-rose-600");
-        contrasenaStatus2.classList.add("text-emerald-600");
-        contrasenaStatus2.innerHTML = "CONTRASEÑAS IGUALES";
+    if(contrasena1.value == contrasena2.value){
+        validarGuia(contrasenaStatus2, "CONTRASEÑAS IGUALES");
     }else{
-        contrasenaStatus2.classList.add("text-rose-600");
-        contrasenaStatus2.classList.remove("text-emerald-600");
-        contrasenaStatus2.innerHTML = "CONTRASEÑAS DISTINTAS";
+        invalidarGuia(contrasenaStatus2, "CONTRASEÑAS DISTINTAS");
     }
 }
 
