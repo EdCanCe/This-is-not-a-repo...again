@@ -19,7 +19,8 @@ app.use((request, response, next) => {
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-app.use('/persona/agregar', (request, response, next) => {
+//app.get es para registrar un middleware para peticiones HTTP tipo GET
+app.get('/persona/agregar', (request, response, next) => {
     response.send(getPage("main"));
 });
 
