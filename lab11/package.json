@@ -1,0 +1,22 @@
+{
+  "name": "this_is_not_a_repo...again",
+  "version": "1.0.0",
+  "description": "Laboratorios de TCB2005B feb-jun 2025 QRO",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdCanCe/This-is-not-a-repo...again.git"
+  },
+  "keywords": [
+    "TC2005B"
+  ],
+  "author": "Edmundo Canedo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EdCanCe/This-is-not-a-repo...again/issues"
+  },
+  "homepage": "https://github.com/EdCanCe/This-is-not-a-repo...again#readme"
+}
