@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 const file_system = require('fs');
+const bodyParser = require('body-parser');
+
+const personas = [];
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 const getHTML = (adr) => {
     return file_system.readFileSync(('html/'+adr+'.html'), {encoding: 'utf8', flag: 'r'});
@@ -22,6 +27,12 @@ app.use((request, response, next) => {
 //app.get es para registrar un middleware para peticiones HTTP tipo GET
 app.get('/persona/agregar', (request, response, next) => {
     response.send(getPage("main"));
+});
+
+app.post('/persona/agregar', (request, response, next) => {
+    response.send(getPage("main"));
+    console.log(request.body);
+    personas.push(request.body.nombre);
 });
 
 app.use((request, response, next) => {
