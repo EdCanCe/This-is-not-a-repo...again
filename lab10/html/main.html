@@ -1,13 +1,11 @@
-<h1 class="text-3xl font-bold text-center text-slate-100 mb-8">Laboratorio 10</h1>
+<h1 class="text-4xl font-bold text-center text-slate-100 mb-6">PÁGINA DE INICIO</h1>
 
-<div>
-    <form action="/agregar" method="POST" class="space-y-6">
-        <div>
-            <label for="nombre" class="block text-sm font-semibold">Su nombre:</label>
-            <input name="nombre" type="text" id="nombre" class="w-full p-3 mt-2 rounded-md border border-neutral-500 bg-slate-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500" placeholder="Juan Pérez" required>
-        </div>
-        <div>
-            <input type="submit" value="Enviar" class="w-full p-3 mt-4 rounded-md bg-slate-600 text-white hover:bg-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500 cursor-pointer">
-        </div>
-    </form>
-</div>
+<p class="text-lg mb-4">Se pueden acceder a los siguientes enlaces:</p>
+
+<ul class="list-disc list-inside mb-6">
+    <li><a class="underline" href="/agregar">Agregar</a></li>
+    <li><a class="underline" href="/about">Sobre mí</a></li>
+    <li><a class="underline" href="/extra">Una página extra</a></li>
+</ul>
+
+<p class="text-lg">De igual manera, si se accede a una ruta fuera de éstas, saldrá un error 404.</p>
