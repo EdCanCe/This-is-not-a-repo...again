@@ -6,6 +6,6 @@ const bodyParser = require('body-parser'); // Importa body-parser
 app.use(bodyParser.urlencoded({extended: false}));
 
 const mainRoutes = require('./routes/main.routes.js');
-app.use('/main', mainRoutes);
+app.use('/', mainRoutes);
 
 app.listen(3000);
