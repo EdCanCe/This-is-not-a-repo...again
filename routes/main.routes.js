@@ -10,26 +10,9 @@ const express = require('express'); // Importa express
 const router = express.Router(); // Usa el router de express ya que el servidor lo manda a llamar
 const path = require('path'); // Permite usar direcciones del sistema
 
-const htmlHeader = `<!DOCTYPE html>
-<html lang="es">
-   <head>
-        <title>Laboratorio 10</title>
-        <meta charset="UTF-8"> 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-   </head>
-   <body class="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-white font-[Poppins]">
-        <div class="max-w-2xl w-full p-8 bg-slate-800 rounded-lg shadow-lg">
-            <header class="text-center text-lg italic mb-4">Edmundo Canedo Cervantes - A01645576</header>`;
+const htmlHeader = ``;
 
-const htmlFooter = `<footer class="text-center text-sm italic mt-8">Para realizar esta página, se utilizó <a href="https://code.visualstudio.com/" class="text-slate-300 hover:text-slate-100">Visual Studio Code</a></footer>
-        </div>
-    </body>
-</html>
-`;
+const htmlFooter = ``;
 
 const htmlQuestions = `
 <h1 class="text-4xl font-bold text-center text-slate-100 mb-6">PREGUNTAS</h1>

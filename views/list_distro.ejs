@@ -1,0 +1,9 @@
+<%- include('includes/_header') %>
+<br><p>Las siguientes personas han votado: </p>
+<ul>
+
+<% for(let i=0; i<personas.length; i++){ %>
+    <li><%= personas[i] %>: <%= distros[i] %></li>
+<% } %>
+</ul>
+<%- include('includes/_footer') %>
