@@ -8,6 +8,7 @@
 const file_system = require('fs'); // Permite gestionar archivos
 const express = require('express'); // Importa express
 const router = express.Router(); // Usa el router de express ya que el servidor lo manda a llamar
+const path = require('path'); // Permite usar direcciones del sistema
 
 const htmlHeader = `<!DOCTYPE html>
 <html lang="es">
@@ -30,18 +31,6 @@ const htmlFooter = `<footer class="text-center text-sm italic mt-8">Para realiza
 </html>
 `;
 
-const htmlMain = `
-<h1 class="text-4xl font-bold text-center text-slate-100 mb-6">PÁGINA DE INICIO</h1>
-<p>Se pueden acceder a las siguientes páginas:</p>
-<ul class="list-disc list-inside">
-    <li><a class="underline" href="/">Página de inicio</a></li>
-    <li><a class="underline" href="/questions">Preguntas</a></li>
-    <li><a class="underline" href="/about">Sobre mí</a></li>
-    <li><a class="underline" href="/distros">Distribuciones de Linux</a></li>
-    <li><a class="underline" href="/distros/add">Encuesta sobre Linux</a></li>
-</ul>
-`;
-
 const htmlQuestions = `
 <h1 class="text-4xl font-bold text-center text-slate-100 mb-6">PREGUNTAS</h1>
 <p class="font-bold">Describe el archivo package.json:</p>
@@ -58,7 +47,7 @@ const htmlAbout = `
 `;
 
 router.get(['/', '/main'], (req, res, next) => {
-    res.send(htmlHeader + htmlMain + htmlFooter);
+    res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
 });
 
 router.get('/questions', (req, res, next) => {
