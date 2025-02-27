@@ -5,7 +5,7 @@ let arreglo = [1,2,3,4,5,6,7,8,9,10];
 
 const promedio = (arr) => {
     let acum = 0;
-    for(i of arr){
+    for(let i of arr){
         acum += i;
     }
     return "El promedio es " + acum/arr.length;
