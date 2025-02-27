@@ -8,4 +8,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 const mainRoutes = require('./routes/main.routes.js');
 app.use('/', mainRoutes);
 
+const distroRoutes = require('./routes/distros.routes.js');
+app.use('/distros', distroRoutes);
+
+app.use((req, res) => {
+    res.status(404).send("Página no encontrada :C");
+});
+
 app.listen(3000);

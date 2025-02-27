@@ -3,7 +3,6 @@
  *  - / (GET)
  *  - /questions (GET)
  *  - /about (GET)
- *  - Para error 404
  */
 
 const file_system = require('fs'); // Permite gestionar archivos
@@ -39,7 +38,7 @@ const htmlMain = `
     <li><a class="underline" href="/questions">Preguntas</a></li>
     <li><a class="underline" href="/about">Sobre mí</a></li>
     <li><a class="underline" href="/distros">Distribuciones de Linux</a></li>
-    <li><a class="underline" href="/distros/add">Preguntas</a></li>
+    <li><a class="underline" href="/distros/add">Encuesta sobre Linux</a></li>
 </ul>
 `;
 
@@ -58,7 +57,7 @@ const htmlAbout = `
 <p>Uso Fedora como sistema operativo</p>
 `;
 
-router.get('/', (req, res, next) => {
+router.get(['/', '/main'], (req, res, next) => {
     res.send(htmlHeader + htmlMain + htmlFooter);
 });
 
