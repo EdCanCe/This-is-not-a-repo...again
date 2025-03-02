@@ -19,7 +19,7 @@ const distroRoutes = require('./routes/distros.routes.js');
 app.use('/distros', distroRoutes);
 
 app.use((req, res) => {
-    res.status(404).send("Página no encontrada :C");
+    res.status(404).render('error404');
 });
 
 app.listen(3000);
