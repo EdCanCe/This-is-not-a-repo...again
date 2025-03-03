@@ -1,39 +1,14 @@
-/**
- * Aquí se encuentran las rutas:
- *  - /distros (GET)
- *  - /distros/add (GET y POST)
- */
+const express = require('express');
+const router = express.Router();
+const distro_controller = require('../controllers/distro.controller');
 
-const file_system = require('fs'); // Permite gestionar archivos
-const express = require('express'); // Importa express
-const router = express.Router(); // Usa el router de express ya que el servidor lo manda a llamar
+// Manda a llamar los controllers
+router.get('/', distro_controller.get_distro);
 
-const personas = [];
-const distros = [];
+router.get('/add', distro_controller.get_distro_add);
 
-//No se añade "/distros", ya que el servidor ya lo está ruteando ahí mismo
-router.get('/', (req, res, next) => { 
-    res.render('distros');
-});
+router.post('/add', distro_controller.post_distro_add);
 
-// Como ya está "/distros" en el servidor, aquí sería "/distros/add"
-router.get('/add', (req, res, next) => {
-    res.render('add_distro');
-});
-
-router.post('/add', (req, res, next) => {
-    const fileName = "encuestas/"+req.body.nombre+".txt";
-    file_system.writeFileSync(fileName, req.body.distro);
-    
-    personas.push(req.body.nombre);
-    distros.push(req.body.distro);
-    
-    // Manda a mostrar las personas que han votado por alguna distro
-    res.render('list_distro.ejs', {
-        personas,
-        distros,
-    });
-    
-});
+router.get('/list', distro_controller.get_distro_list);
 
 module.exports = router;

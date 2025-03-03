@@ -3,8 +3,8 @@
 <br><p>Las siguientes personas han votado: </p>
 <ul class="list-disc list-inside">
 
-<% for(let i=0; i<personas.length; i++){ %>
-    <li><%= personas[i] %>: <%= distros[i] %></li>
+<% for(let i of entrevistas){ %>
+    <li><%= i.nombre %>: <%= i.distro %></li>
 <% } %>
 
 </ul>

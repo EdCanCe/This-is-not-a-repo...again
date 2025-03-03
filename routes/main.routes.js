@@ -1,23 +1,13 @@
-/**
- * Aquí se encuentran la rutas:
- *  - / y /main (GET)
- *  - /questions (GET)
- *  - /about (GET)
- */
+const express = require('express');
+const router = express.Router();
+const main_controller = require('../controllers/main.controller');
 
-const express = require('express'); // Importa express
-const router = express.Router(); // Usa el router de express ya que el servidor lo manda a llamar
+// Manda a llamar los controllers
+router.get('/', main_controller.get);
+router.get('/main', main_controller.get);
 
-router.get(['/', '/main'], (req, res, next) => {
-    res.render('main');
-});
+router.get('/about', main_controller.get_about);
 
-router.get('/questions', (req, res, next) => {
-    res.render('questions');
-});
-
-router.get('/about', (req, res, next) => {
-    res.render('about');
-});
+router.get('/questions', main_controller.get_questions);
 
 module.exports = router;
