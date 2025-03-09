@@ -1,11 +1,33 @@
 exports.get = (req, res, next) => {
-    res.render('main');
+    const datosLog = {
+        loggedState: req.session.isLoggedIn || false,
+        userName: req.session.userName || "",
+    }
+
+    res.render('main', {
+        datosLog: datosLog
+    });
 }
 
+
 exports.get_questions = (req, res, next) => {
-    res.render('questions');
+    const datosLog = {
+        loggedState: req.session.isLoggedIn || false,
+        userName: req.session.userName || "",
+    }
+
+    res.render('questions', {
+        datosLog: datosLog
+    });
 }
 
 exports.get_about = (req, res, next) => {
-    res.render('about');
+    const datosLog = {
+        loggedState: req.session.isLoggedIn || false,
+        userName: req.session.userName || "",
+    }
+
+    res.render('about', {
+        datosLog: datosLog
+    });
 }
