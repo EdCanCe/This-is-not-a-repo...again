@@ -1,7 +1,8 @@
 exports.get = (req, res, next) => {
     const datosLog = {
         loggedState: req.session.isLoggedIn || false,
-        userName: req.session.userName || "",
+        lastId: req.session.insertId || -1,
+        username: req.session.username || "",
     }
 
     res.render('main', {
@@ -13,7 +14,8 @@ exports.get = (req, res, next) => {
 exports.get_questions = (req, res, next) => {
     const datosLog = {
         loggedState: req.session.isLoggedIn || false,
-        userName: req.session.userName || "",
+        lastId: req.session.insertId || -1,
+        username: req.session.username || "",
     }
 
     res.render('questions', {
@@ -24,7 +26,8 @@ exports.get_questions = (req, res, next) => {
 exports.get_about = (req, res, next) => {
     const datosLog = {
         loggedState: req.session.isLoggedIn || false,
-        userName: req.session.userName || "",
+        lastId: req.session.insertId || -1,
+        username: req.session.username || "",
     }
 
     res.render('about', {

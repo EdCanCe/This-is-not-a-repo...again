@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Laboratorio 14</title>
+        <title>Laboratorio 17</title>
         <meta charset="UTF-8"> 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,15 @@
 
             <nav class="bg-slate-800 p-4 shadow-lg fixed top-0 left-0 right-0 z-10">
                 <div class="max-w-7xl mx-auto flex justify-between items-center">
-                    <div class="text-xl font-semibold"><a href="/">Laboratorio 14</a></div>
+                    <div class="text-xl font-semibold"><a href="/">Laboratorio 17</a></div>
                     <div class="flex space-x-4">
                         
                         <% if(datosLog.loggedState == true) {
                             %><%- include('./_logOutButton') %><%
+
+                            if(datosLog.lastId != -1){
+                                %><%- include('./_modifyLast') %><%
+                            }
                         }
                         
                         else {
@@ -31,5 +35,5 @@
             </nav>
 
             <% if(datosLog.loggedState == true) {  %>
-                <h2 class="text-xl text-center text-slate-100 mb-6">Bienvenido, <%= datosLog.userName %></h2>
+                <h2 class="text-xl text-center text-slate-100 mb-6">Bienvenido, <%= datosLog.username %></h2>
             <% } %>

@@ -3,8 +3,6 @@ const app = express(); // Llamar express de forma más rápida
 const bodyParser = require('body-parser'); // Importa body-parser
 const path = require('path'); // Permite usar direcciones del sistema
 const session = require('express-session');
-const main_controller = require('./controllers/main.controller');
-
 
 app.use(session({
     secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste', 

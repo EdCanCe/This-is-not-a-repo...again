@@ -1,7 +1,7 @@
-<form action="/distros/add" method="POST" class="space-y-4">
+<form action="/distros/modify" method="POST" class="space-y-4">
     <div>
         <label for="distro" class="block text-sm mb-2">Selecciona tu distro favorita de Linux:</label>
-        <select name="distro" id="distro" class="w-full p-2 bg-slate-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-600">
+        <select value="<%= entrevistas[0].distro %>" name="distro" id="distro" class="w-full p-2 bg-slate-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-600">
             <option value="ubuntu">Ubuntu</option>
             <option value="debian">Debian</option>
             <option value="fedora">Fedora</option>

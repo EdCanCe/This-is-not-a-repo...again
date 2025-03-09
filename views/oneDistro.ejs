@@ -1,0 +1,8 @@
+<%- include('includes/_header') %>
+<% if(entrevistas.length == 0) {
+    %><%- include('includes/_errorBody') %><%
+} else {
+    %><%- include('includes/_distro') %><%
+} %>
+
+<%- include('includes/_footer') %> 

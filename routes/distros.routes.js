@@ -11,4 +11,10 @@ router.post('/add', distro_controller.post_distro_add);
 
 router.get('/list', distro_controller.get_distro_list);
 
+router.get('/modify', distro_controller.get_distro_modify);
+
+router.post('/modify', distro_controller.post_distro_modify);
+
+router.get('/:distro', distro_controller.get_distro_id)
+
 module.exports = router;

@@ -1,7 +1,8 @@
 exports.get_in = (req, res, next) => {
     const datosLog = {
         loggedState: req.session.isLoggedIn || false,
-        userName: req.session.userName || "",
+        lastId: req.session.insertId || -1,
+        username: req.session.username || "",
     }
 
     res.render('login', {
@@ -11,7 +12,7 @@ exports.get_in = (req, res, next) => {
 
 exports.post_in = (req, res, next) => {
     req.session.isLoggedIn = true;
-    req.session.userName = req.body.username;
+    req.session.username = req.body.username;
     res.redirect('/');
 }
 
