@@ -57,3 +57,6 @@ npm start
 
 **Laboratorio 15:**
 Éste laboratorio fue elaborado únicamente por mi.
+
+**Laboratorio 17:**
+Éste laboratorio fue elaborado únicamente por mi.
