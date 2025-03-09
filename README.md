@@ -49,3 +49,9 @@ npm start
 
 ### Laboratorio 13:
 Éste laboratorio fue elaborado en conjunto con [Emilio Santiago López Quiñonez](https://github.com/EdCanCe/This-is-not-a-repo...again/commit/7d491591becb51f393aaedad998e3adc05c62171).
+
+### Laboratorio 14:
+Éste laboratorio fue elaborado únicamente por mi.
+
+### Laboratorio 15:
+Éste laboratorio fue elaborado únicamente por mi.
