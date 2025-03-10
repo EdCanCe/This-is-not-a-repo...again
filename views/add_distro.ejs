@@ -1,3 +1,9 @@
 <%- include('includes/_header') %>
-<%- include('includes/_addDistro') %>
+
+<% if(datosLog.loggedState == true){
+    %><%- include('includes/_addDistro') %><%
+} else {
+    %><%- include('includes/_notAllowed') %><%
+} %>
+
 <%- include('includes/_footer') %>

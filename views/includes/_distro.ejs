@@ -1,0 +1,5 @@
+<h1 class="text-4xl font-bold text-center text-slate-100 mb-6">Votaciones hacia <%= distro %></h1>
+
+<% for(let i of entrevistas){ %>
+    <li><%= i.username %>: <%= i.createdAt %></li>
+<% } %>
