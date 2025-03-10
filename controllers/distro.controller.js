@@ -1,4 +1,3 @@
-const { Cookie } = require('express-session');
 const Distro = require('../models/distro.model');
 const moment = require('moment');
 
