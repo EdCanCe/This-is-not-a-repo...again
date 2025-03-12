@@ -13,6 +13,10 @@ app.use(session({
 // Permite leer el cuerpo de las solicitudes, es decir, permite leer los datos de un POST
 app.use(bodyParser.urlencoded({extended: false}));
 
+const csrf = require('csurf'); // Nos protegemos contra CSRF
+const csrfProtection = csrf(); 
+app.use(csrfProtection); 
+
 app.set('view engine', 'ejs'); // Establece ejs como su motor de plantillas
 app.set('views', 'views'); // Establece el directorio donde express buscará los archivos de las vistas
 

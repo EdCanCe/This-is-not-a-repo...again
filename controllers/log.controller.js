@@ -1,23 +1,83 @@
+const User = require('../models/user.model');
+const bcrypt = require('bcryptjs');
+
 exports.get_in = (req, res, next) => {
     const datosLog = {
         loggedState: req.session.isLoggedIn || false,
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
+        message: req.session.message || "",
+        isNew: false,
     }
+    req.session.message = "";
 
     res.render('login', {
-        datosLog: datosLog
+        datosLog: datosLog,
+        csrfToken: req.csrfToken(),
     });
 }
 
 exports.post_in = (req, res, next) => {
-    req.session.isLoggedIn = true;
-    req.session.username = req.body.username;
-    res.redirect('/');
+    User.fetchOne(req.body.username).then(([rows, fieldData]) => {
+        if(rows.length > 0){
+            bcrypt.compare(req.body.password, rows[0].passwd).then((doMatch) => {
+                if (doMatch) {
+                    req.session.isLoggedIn = true;
+                    req.session.username = req.body.username;
+                    req.session.userID = rows[0].id;
+                    req.session.message = "Ha iniciado sesión con éxito!";
+                    return req.session.save((error) => {
+                        res.redirect('/'); // Si no hay errores al guardar la sesión, redirige
+                    });
+                } else {
+                    req.session.message = "Contraseña incorrecta";
+                    res.redirect('/log/in');
+                }
+            }).catch(err => console.log(err));
+        } else {
+            req.session.message = "No hay un usuario con ese nombre";
+            res.redirect('/log/in');
+        }
+    }).catch(err => console.log(err));
 }
 
 exports.get_out = (req, res, next) => {
     req.session.destroy(() => {
         res.redirect('/'); 
     });
+}
+
+exports.get_new = (req, res, next) => {
+    const datosLog = {
+        loggedState: req.session.isLoggedIn || false,
+        lastId: req.session.insertId || -1,
+        username: req.session.username || "",
+        message: req.session.message || "",
+        isNew: true,
+    }
+    req.session.message = "";
+
+    res.render('login', {
+        datosLog: datosLog,
+        csrfToken: req.csrfToken(),
+    });
+}
+
+exports.post_new = (req, res, next) => {
+    const datosLog = {
+        loggedState: req.session.isLoggedIn || false,
+        lastId: req.session.insertId || -1,
+        username: req.session.username || "",
+        message: req.session.message || "",
+        isNew: true,
+    }
+
+    const mi_Usuario = new User(req.body.username, req.body.password); // Creo la clase con los datos del form
+
+    mi_Usuario.save()
+        .then(() => {
+            req.session.message = "Se ha creado el usuario con éxito!";
+            res.redirect('/log/in');
+        })
+        .catch(err => console.log(err));
 }

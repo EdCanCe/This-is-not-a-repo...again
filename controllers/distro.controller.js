@@ -1,4 +1,3 @@
-const { Cookie } = require('express-session');
 const Distro = require('../models/distro.model');
 const moment = require('moment');
 
@@ -7,7 +6,9 @@ exports.get_distro = (req, res, next) => {
         loggedState: req.session.isLoggedIn || false,
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
+        message: req.session.message || "",
     }
+    req.session.message = "";
 
     res.render('distros', {
         datosLog: datosLog
@@ -19,10 +20,13 @@ exports.get_distro_add = (req, res, next) => {
         loggedState: req.session.isLoggedIn || false,
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
+        message: req.session.message || "",
     }
+    req.session.message = "";
 
     res.render('add_distro', {
-        datosLog: datosLog
+        datosLog: datosLog,
+        csrfToken: req.csrfToken(),
     });
 }
 
@@ -31,9 +35,11 @@ exports.post_distro_add = (req, res, next) => {
         loggedState: req.session.isLoggedIn || false,
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
+        message: req.session.message || "",
+        userId: req.session.userID || 0,
     }
 
-    const mi_Distro = new Distro(datosLog.username, req.body.distro); // Creo la clase con los datos del form
+    const mi_Distro = new Distro(datosLog.userId, req.body.distro); // Creo la clase con los datos del form
 
     mi_Distro.save()
         .then(([result]) => {
@@ -48,7 +54,9 @@ exports.get_distro_list = (req, res, next) => {
         loggedState: req.session.isLoggedIn || false,
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
+        message: req.session.message || "",
     }
+    req.session.message = "";
     
     // Manda a mostrar las personas que han votado por alguna distro
 
@@ -69,7 +77,9 @@ exports.get_distro_id = (req, res, next) => {
         loggedState: req.session.isLoggedIn || false,
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
+        message: req.session.message || "",
     }
+    req.session.message = "";
 
     Distro.fetchByDistro(distro)
         .then(([rows, list_distro]) => {
@@ -92,13 +102,16 @@ exports.get_distro_modify = (req, res, next) => {
         loggedState: req.session.isLoggedIn || false,
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
+        message: req.session.message || "",
     }
+    req.session.message = "";
 
     Distro.fetchById(datosLog.lastId)
         .then(([rows, list_distro]) => {
             res.render('modifyDistro', {
                 entrevistas: rows,
                 datosLog: datosLog,
+                csrfToken: req.csrfToken(),
             });
         })
         .catch(err => console.log(err))
@@ -109,9 +122,12 @@ exports.post_distro_modify = (req, res, next) => {
         loggedState: req.session.isLoggedIn || false,
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
+        message: req.session.message || "",
+        userId: req.session.userID || 0,
     }
+    req.session.message = "";
 
-    const mi_Distro = new Distro(datosLog.username, req.body.distro, datosLog.lastId); // Creo la clase con los datos del form
+    const mi_Distro = new Distro(datosLog.userId, req.body.distro, datosLog.lastId); // Creo la clase con los datos del form
 
     mi_Distro.modify()
         .then(([result]) => {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Laboratorio 17</title>
+        <title>Laboratorio 18</title>
         <meta charset="UTF-8"> 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,31 +9,41 @@
         <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-white font-[Poppins]">
-        <div class="max-w-2xl w-full p-8 bg-slate-800 rounded-lg shadow-lg">
-            <header class="text-center text-lg italic mb-4">Hecho por: Edmundo Canedo Cervantes</header>
 
-            <nav class="bg-slate-800 p-4 shadow-lg fixed top-0 left-0 right-0 z-10">
-                <div class="max-w-7xl mx-auto flex justify-between items-center">
-                    <div class="text-xl font-semibold"><a href="/">Laboratorio 17</a></div>
-                    <div class="flex space-x-4">
-                        
-                        <% if(datosLog.loggedState == true) {
-                            %><%- include('./_logOutButton') %><%
+    <body class="text-white font-[Poppins]">
 
-                            if(datosLog.lastId != -1){
-                                %><%- include('./_modifyLast') %><%
-                            }
+        <nav class="bg-slate-800 p-4 shadow-lg fixed top-0 left-0 right-0 z-10">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="text-xl font-semibold"><a href="/">Laboratorio 18</a></div>
+                <div class="flex space-x-4">
+                    
+                    <% if(datosLog.loggedState == true) {
+                        %><%- include('./_logOutButton') %><%
+
+                        if(datosLog.lastId != -1){
+                            %><%- include('./_modifyLast') %><%
                         }
-                        
-                        else {
-                            %><%- include('./_logInButton') %><%
-                        } %>
+                    }
+                    
+                    else {
+                        %><%- include('./_logInButton') %><%
+                    } %>
 
-                    </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
-            <% if(datosLog.loggedState == true) {  %>
-                <h2 class="text-xl text-center text-slate-100 mb-6">Bienvenido, <%= datosLog.username %></h2>
-            <% } %>
+
+        <div class="flex flex-col items-center justify-center min-h-screen bg-slate-950">
+            <div class="max-w-2xl w-full p-8 bg-slate-800 rounded-lg shadow-lg">
+                <header class="text-center text-lg italic mb-4">Hecho por: Edmundo Canedo Cervantes</header>
+
+                
+
+                <% if(datosLog.loggedState == true) {  %>
+                    <h2 class="text-xl text-center text-slate-100 mb-6">Bienvenido, <%= datosLog.username %></h2>
+                <% } %>
+
+                <% if(datosLog.message != "") {  %>
+                    <h1 class="rounded-lg block bg-blue-700 text-center mb-4 text-lg font-bold p-2"><%= datosLog.message %></h1>
+                <% } %>
