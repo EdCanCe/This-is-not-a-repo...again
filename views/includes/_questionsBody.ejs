@@ -1,6 +1,3 @@
 <h1 class="text-4xl font-bold text-center text-slate-100 mb-6">PREGUNTAS</h1>
-<p class="font-bold">¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo? </p>
-<p class="mt-2">En primer lugar, permite tener una estructura en el proyecto, haciendo que sea más fácil la edición en caso de que sea necesaria. También hace más fácil la mantenibilidad; ya que, al tener todo en un mismo lugar, los modelos mantienen la lógica de la base de datos.</p>
-
-<p class="font-bold mt-6">¿Qué es SQL injection y cómo se puede prevenir? </p>
-<p class="mt-2">Es cuando se quiere hacer uso de alguna variable, que enrealidad es un código SQL, lo que hace que la computadora lo interprete como que lo tiene que ejecutar, dejando así muchas vulenrabilidades y posibles fugas de datos. Se puede prevenir al especificar qué se va a usar de variables en otro apartado, como hacer values(?, ?), [val1, val2], también se puede dentro del servidor, implementar un script para validar que las variables a usar no sean scripts de SQL.</p>
+<p class="font-bold">¿Qué otras formas de autentificación existen?</p>
+<p class="mt-2">Utilizando tokens, como los JSON Web Tokens. En éste se mandan datos que se componen de 3 partes. Un encabezado(tiene información de cómo procesar el token), una carga útil(información sobre alguna entidad, objeto o usuario) y una firma(la codificación base64Url del encabezado y la carga útil y las firma usando un secreto); </p>
