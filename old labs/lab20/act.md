@@ -65,35 +65,51 @@ GROUP by M.clave;
 ### La Clave del material más vendido durante el 2001. (se recomienda usar una vista intermedia para su solución)
 
 ```
-
+SELECT M.clave
+FROM materiales M, entregan E
+WHERE M.clave = E.clave
+AND E.fecha BETWEEN '2000-01-01' AND '2000-12-31'
+GROUP BY M.clave
+HAVING SUM(E.cantidad) = (SELECT MAX(total)
+                            FROM (SELECT SUM(E2.cantidad) AS total
+                                    FROM materiales M2, entregan E2
+                                    WHERE M2.clave = E2.clave
+                                    AND E2.fecha BETWEEN '2000-01-01' AND '2000-12-31'
+                                    GROUP BY M2.clave) as totales);
 ```
 
 > [!NOTE]
-> Número de filas:
+> Número de filas: 1
 
-![](./imgs/Q0.png)
+![](./imgs/Q5.png)
 
 ### Productos que contienen el patrón 'ub' en su nombre.
 
 ```
-
+SELECT m.descripcion
+FROM materiales m
+WHERE m.descripcion LIKE "%ub%";
 ```
 
 > [!NOTE]
-> Número de filas:
+> Número de filas: 12
 
-![](./imgs/Q0.png)
+![](./imgs/Q6.png)
 
 ### Denominación y suma del total a pagar para todos los proyectos.
 
 ```
-
+SELECT p.denominacion, SUM((e.cantidad*(m.precio+m.impuesto))) as 'TotalMaterial'
+FROM proyectos p, entregan e, materiales m
+WHERE p.numero = e.numero
+AND m.clave = e.clave
+GROUP BY p.numero
 ```
 
 > [!NOTE]
-> Número de filas:
+> Número de filas: 20
 
-![](./imgs/Q0.png)
+![](./imgs/Q7.png)
 
 ### Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Solo usando vistas).
 
@@ -118,6 +134,17 @@ GROUP by M.clave;
 ![](./imgs/Q0.png)
 
 ### Costo de los materiales y los Materiales que son entregados al proyecto Televisa en acción cuyos proveedores también suministran materiales al proyecto Educando en Coahuila.
+
+```
+
+```
+
+> [!NOTE]
+> Número de filas:
+
+![](./imgs/Q0.png)
+
+### Nombre del material, cantidad de veces entregados y total del costo de dichas entregas por material de todos los proyectos. 
 
 ```
 
