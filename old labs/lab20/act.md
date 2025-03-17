@@ -114,24 +114,49 @@ GROUP BY p.numero
 ### Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Solo usando vistas).
 
 ```
-
+SELECT DISTINCT pr.denominacion, p.rfc, p.razonsocial
+FROM entregan e, proyectos pr, (SELECT p.razonsocial, p.rfc
+                                FROM proveedores p, entregan e, proyectos pr
+                                WHERE p.rfc = e.rfc
+                                AND pr.numero = e.numero
+                                AND pr.denominacion = "Televisa en acción"
+                                EXCEPT (SELECT p.razonsocial, p.rfc
+                                        FROM proveedores p, entregan e, proyectos pr
+                                        WHERE p.rfc = e.rfc
+                                        AND pr.numero = e.numero
+                                        AND pr.denominacion = "Educando en Coahuila")) p
+WHERE p.rfc = e.rfc
+AND pr.numero = e.numero 
 ```
 
 > [!NOTE]
-> Número de filas:
+> Número de filas: 16
 
-![](./imgs/Q0.png)
+![](./imgs/Q8.png)
 
 ### Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Sin usar vistas, utiliza not in, in o exists).
 
 ```
-
+SELECT DISTINCT pr.denominacion, p.rfc, p.razonsocial
+FROM proveedores p, entregan e, proyectos pr
+WHERE p.rfc = e.rfc
+AND pr.numero = e.numero
+AND p.rfc IN (SELECT p.rfc
+                FROM proveedores p, entregan e, proyectos pr
+                WHERE p.rfc = e.rfc
+                AND pr.numero = e.numero
+                AND pr.denominacion = "Televisa en acción"
+                AND p.rfc NOT IN (SELECT p.rfc
+                                 FROM proveedores p, entregan e, proyectos pr
+                                 WHERE p.rfc = e.rfc
+                                 AND pr.numero = e.numero
+                                 AND pr.denominacion = "Educando en Coahuila"));
 ```
 
 > [!NOTE]
-> Número de filas:
+> Número de filas: 16
 
-![](./imgs/Q0.png)
+![](./imgs/Q9.png)
 
 ### Costo de los materiales y los Materiales que son entregados al proyecto Televisa en acción cuyos proveedores también suministran materiales al proyecto Educando en Coahuila.
 
