@@ -4,6 +4,7 @@ exports.get_error = (req, res, next) => {
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
         message: req.session.message || "",
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 

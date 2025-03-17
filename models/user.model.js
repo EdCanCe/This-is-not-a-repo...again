@@ -22,4 +22,8 @@ module.exports = class User {
         return db.execute('SELECT * FROM user WHERE username = ?', [username]);
     }
 
+    static getPrivileges(username) {
+        return db.execute('SELECT DISTINCT p.summary FROM privilege p, privilegeRole pr, role r, userRole ur, user u WHERE p.id = pr.privilegeRolePrivilegeIDFK AND pr.privilegeRoleRoleIDFK = r.id AND r.id = ur.userRoleRoleIDFK AND u.id = ur.userRoleUserIDFK AND u.username = ?', [username]);
+    }
+
 }

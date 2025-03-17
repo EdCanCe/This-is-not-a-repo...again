@@ -8,6 +8,7 @@ exports.get_in = (req, res, next) => {
         username: req.session.username || "",
         message: req.session.message || "",
         isNew: false,
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 
@@ -22,13 +23,18 @@ exports.post_in = (req, res, next) => {
         if(rows.length > 0){
             bcrypt.compare(req.body.password, rows[0].passwd).then((doMatch) => {
                 if (doMatch) {
-                    req.session.isLoggedIn = true;
-                    req.session.username = req.body.username;
-                    req.session.userID = rows[0].id;
-                    req.session.message = "Ha iniciado sesión con éxito!";
-                    return req.session.save((error) => {
-                        res.redirect('/'); // Si no hay errores al guardar la sesión, redirige
-                    });
+                    User.getPrivileges(rows[0].username).then(([privileges, fieldData]) => {
+                        req.session.isLoggedIn = true;
+                        req.session.username = req.body.username;
+                        req.session.userID = rows[0].id;
+                        req.session.privileges = privileges;
+                        req.session.message = "Ha iniciado sesión con éxito!";
+                        console.log("Debud controller log: ");
+                        console.log(req.session.privileges);
+                        return req.session.save((error) => {
+                            res.redirect('/'); // Si no hay errores al guardar la sesión, redirige
+                        });
+                    }).catch(err => console.log(err));
                 } else {
                     req.session.message = "Contraseña incorrecta";
                     res.redirect('/log/in');
@@ -54,6 +60,7 @@ exports.get_new = (req, res, next) => {
         username: req.session.username || "",
         message: req.session.message || "",
         isNew: true,
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 
@@ -70,6 +77,7 @@ exports.post_new = (req, res, next) => {
         username: req.session.username || "",
         message: req.session.message || "",
         isNew: true,
+        privileges: req.session.privileges || [],
     }
 
     const mi_Usuario = new User(req.body.username, req.body.password); // Creo la clase con los datos del form

@@ -4,6 +4,7 @@ exports.get = (req, res, next) => {
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
         message: req.session.message || "",
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 
@@ -19,6 +20,7 @@ exports.get_questions = (req, res, next) => {
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
         message: req.session.message || "",
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 
@@ -33,6 +35,7 @@ exports.get_about = (req, res, next) => {
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
         message: req.session.message || "",
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 

@@ -7,6 +7,7 @@ exports.get_distro = (req, res, next) => {
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
         message: req.session.message || "",
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 
@@ -21,6 +22,7 @@ exports.get_distro_add = (req, res, next) => {
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
         message: req.session.message || "",
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 
@@ -37,6 +39,7 @@ exports.post_distro_add = (req, res, next) => {
         username: req.session.username || "",
         message: req.session.message || "",
         userId: req.session.userID || 0,
+        privileges: req.session.privileges || [],
     }
 
     const mi_Distro = new Distro(datosLog.userId, req.body.distro); // Creo la clase con los datos del form
@@ -55,6 +58,7 @@ exports.get_distro_list = (req, res, next) => {
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
         message: req.session.message || "",
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
     
@@ -78,6 +82,7 @@ exports.get_distro_id = (req, res, next) => {
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
         message: req.session.message || "",
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 
@@ -103,6 +108,7 @@ exports.get_distro_modify = (req, res, next) => {
         lastId: req.session.insertId || -1,
         username: req.session.username || "",
         message: req.session.message || "",
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 
@@ -124,6 +130,7 @@ exports.post_distro_modify = (req, res, next) => {
         username: req.session.username || "",
         message: req.session.message || "",
         userId: req.session.userID || 0,
+        privileges: req.session.privileges || [],
     }
     req.session.message = "";
 

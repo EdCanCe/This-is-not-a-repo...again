@@ -21,7 +21,12 @@
                         %><%- include('./_logOutButton') %><%
 
                         if(datosLog.lastId != -1){
-                            %><%- include('./_modifyLast') %><%
+                            for (let privilege of datosLog.privileges) {
+                                if (privilege.summary == "Modifica votación") {
+                                    %><%- include('./_modifyLast') %><%
+                                }
+                            }
+
                         }
                     }
                     
