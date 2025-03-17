@@ -1,5 +1,155 @@
 # Laboratorio 20
 
+### Consulta de un tabla completa 
+
+```
+select * from materiales 
+```
+
+> [!NOTE]
+> Número de filas: 45
+
+![](./imgs/R1.png)
+
+### Selección 
+
+```
+select * from materiales
+where clave=1000
+```
+
+> [!NOTE]
+> Número de filas: 1
+
+![](./imgs/R2.png)
+
+### Proyección 
+
+```
+select clave,rfc,fecha from entregan 
+```
+
+> [!NOTE]
+> Número de filas: 87
+
+![](./imgs/R3.png)
+
+### Reunión Natural 
+
+```
+select * from materiales,entregan
+where materiales.clave = entregan.clave
+```
+
+> [!NOTE]
+> Número de filas: 87
+
+![](./imgs/R4.png)
+
+### Reunión con criterio específico 
+
+```
+select * from entregan,proyectos
+where entregan.numero <= proyectos.numero 
+```
+
+> [!NOTE]
+> Número de filas: 836
+
+![](./imgs/R5.png)
+
+### Unión
+
+```
+(select * from entregan where clave=1450)
+union
+(select * from entregan where clave=1300)
+```
+
+> [!NOTE]
+> Número de filas: 2
+
+![](./imgs/R6.png)
+
+### Intersección
+
+```
+(select clave from entregan where numero=5001)
+intersect
+(select clave from entregan where numero=5018) 
+```
+
+> [!NOTE]
+> Número de filas: 1
+
+![](./imgs/R7.png)
+
+### Diferencia
+
+```
+(select * from entregan)
+except
+(select * from entregan where clave=1000) 
+```
+
+> [!NOTE]
+> Número de filas: 85
+
+![](./imgs/R8.png)
+
+### Producto cartesiano
+
+```
+select * from entregan,materiales 
+```
+
+> [!NOTE]
+> Número de filas: 3915
+
+![](./imgs/R9.png)
+
+### Operadores de cadena
+
+```
+SELECT * FROM materiales where Descripcion LIKE 'Si%' 
+```
+
+> [!NOTE]
+> Número de filas: 2
+
+![](./imgs/R10.png)
+
+### Between
+
+```
+SELECT Clave,RFC,Numero,Fecha,Cantidad
+FROM entregan
+WHERE Numero Between 5000 and 5010; 
+```
+
+> [!NOTE]
+> Número de filas: 43
+
+![](./imgs/R11.png)
+
+### Exists
+
+```
+SELECT RFC,Cantidad, Fecha,Numero
+FROM entregan
+WHERE Numero Between 5000 and 5010 AND
+Exists ( SELECT RFC
+FROM proveedores
+WHERE RazonSocial LIKE 'La%' and entregan.RFC = proveedores.RFC )
+```
+
+> [!NOTE]
+> Número de filas: 12
+
+![](./imgs/R12.png)
+
+---
+
 ### Los materiales (clave y descripción) entregados al proyecto "México sin ti no estamos completos".
 
 ```
