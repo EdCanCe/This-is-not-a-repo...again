@@ -10,4 +10,6 @@ router.get('/about', main_controller.get_about);
 
 router.get('/questions', main_controller.get_questions);
 
+router.get('/pokedex', main_controller.get_pokemon);
+
 module.exports = router;

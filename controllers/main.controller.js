@@ -9,3 +9,7 @@ exports.get_questions = (req, res, next) => {
 exports.get_about = (req, res, next) => {
     res.render('about');
 }
+
+exports.get_pokemon =(req, res, next) => {
+    res.render('pokemon');
+}
