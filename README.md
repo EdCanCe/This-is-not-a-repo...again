@@ -73,5 +73,8 @@ npm start
 **Laboratorio 22:**
 Éste laboratorio fue elaborado en conjunto con [Emilio Santiago López Quiñonez](https://github.com/EdCanCe/WorkCells/commit/a7b8a15e70176357f7c517814b51026e73fb183b)
 
+**Laboratorio 24:**
+Éste laboratorio fue elaborado programando por mi, mientras era supervisado por mi equipo en el [proyecto](https://github.com/EdCanCe/WorkCells/commit/d5c384e890820c368285c5dbadc375fd34087777)
+
 **Laboratorio 26:**
-Éste laboratorio fue elaborado en conjunto con [Emilio Santiago López Quiñonez]()
+Éste laboratorio fue elaborado en conjunto con [Emilio Santiago López Quiñonez](https://github.com/EdCanCe/This-is-not-a-repo...again/commit/4a9f7d32f645be385263986363079049aeef48b8)
