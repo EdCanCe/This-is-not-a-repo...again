@@ -1,11 +1,102 @@
-<input type="text" id="pokemon" name="nombre" class="w-full p-2 bg-slate-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-600" required placeholder="Ingresa el nombre del pokemon">
+<input
+    type="text"
+    id="pokemon"
+    name="nombre"
+    class="w-full p-2 bg-slate-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-600"
+    required
+    placeholder="Ingresa el nombre del pokemon"
+/>
 
-<div id="pokemonData"></div>
+<div id="pokemonData" class="mt-5">
+    <p class='text-center'>Ingrese el nombre de un pokemon</p>
+</div>
 
 <script>
     const pokeInput = document.getElementById("pokemon");
+    const container = document.getElementById("pokemonData");
 
-    pokeInput.addEventListener("onchange", () => {
-        alert("a");
-    })
+    const updatePkmn = () => {
+        const getHtml = (tag, classes, text) => {
+            return `<${tag} class="${classes}">${text}</${tag}>`;
+        };
+
+        const addData = (tag, classes, text) => {
+            container.innerHTML += getHtml(tag, classes, text);
+        };
+
+        const addImage = (classes, src) => {
+            container.innerHTML += `<img class="${classes}" src="${src}">`
+        }
+
+        const printType = (pokeType) => {
+            const typeColors = {
+                grass: "emerald-500",
+                fire: "red-500",
+                water: "blue-500",
+                bug: "lime-500",
+                normal: "gray-500",
+                electric: "yellow-500",
+                ground: "yellow-700",
+                fairy: "pink-500",
+                fighting: "rose-600",
+                psychic: "purple-500",
+                rock: "orange-500",
+                ghost: "indigo-500",
+                ice: "cyan-400",
+                dragon: "indigo-500",
+                dark: "black",
+                steel: "slate-600",
+                poison: "purple-600",
+                flying: "sky-500",
+            };
+            return getHtml("p", `flex-1 font-bold bg-${typeColors[pokeType]} text-center pt-3 pb-3`, pokeType.toUpperCase());
+        }
+
+        console.log(`https://pokeapi.co/api/v2/pokemon/${pokeInput.value}`);
+
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokeInput.value}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((result) => {
+                container.innerHTML = "";
+                return result.json(); //Regresa otra promesa
+            })
+            .then((data) => {
+                addData("h1", "text-center font-bold text-6xl mt-4", data.name.toUpperCase());
+
+                const sprite = data.sprites.other?.["official-artwork"]?.front_default || data.sprites.front_default;
+
+                addImage("ml-auto mr-auto min-w-[50%]", sprite);
+
+                addData("div", "flex flex-row rounded-lg overflow-hidden", (() => {
+                    let typeHtml = "";
+                    data.types.forEach(pokeType => {
+                        typeHtml += printType(pokeType.type.name);
+                        console.log(pokeType.type.name);
+                    });
+                    return typeHtml;
+                })());
+
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log("err");
+                addData("p", "text-center", "No hay ningún pokemon con ese nombre :(");
+                addData("p", "text-center", "Pero esta es la primera imagen que regresa google fotos de su búsqueda :)");
+            });
+    }
+
+    pokeInput.addEventListener("change", () => {
+        updatePkmn();
+    });
+
+    pokeInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            updatePkmn();
+        }
+    });
+
 </script>

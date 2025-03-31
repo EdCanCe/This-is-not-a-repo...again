@@ -1,0 +1,16 @@
+<h1 class="text-4xl font-bold text-center text-slate-100 mb-6"><% if(datosLog.isNew) { %> CREAR CUENTA <% } else { %> INICIAR SESIÓN <% } %></h1>
+
+<form action="/log/<% if(datosLog.isNew) { %>new<% } else { %>in<% } %>" method="POST" class="space-y-6">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+    <div class="space-y-2">
+        <label for="username" class="block text-sm">Usuario:</label>
+        <input type="text" name="username" id="username" required class="w-full p-2 rounded-md bg-gray-600 border border-gray-500 text-white">
+    </div>
+
+    <div class="space-y-2">
+        <label for="password" class="block text-sm">Contraseña:</label>
+        <input type="password" name="password" id="password" required class="w-full p-2 rounded-md bg-gray-600 border border-gray-500 text-white">
+    </div>
+
+    <button type="submit" class="w-full p-3 mt-6 rounded-md bg-slate-600 text-white hover:bg-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500 cursor-pointer block"><% if(datosLog.isNew) { %> Crear cuenta <% } else { %> Iniciar sesión <% } %></button>
+</form>

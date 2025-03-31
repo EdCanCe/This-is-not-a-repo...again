@@ -1,0 +1,8 @@
+<br><p>Han votado por los siguiente: </p>
+<ul class="list-disc list-inside">
+
+<% for(let i of entrevistas){ %>
+    <li><%= i.username %>: <%= i.distro %></li>
+<% } %>
+
+</ul>
