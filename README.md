@@ -78,3 +78,6 @@ npm start
 
 **Laboratorio 26:**
 Éste laboratorio fue elaborado en conjunto con [Emilio Santiago López Quiñonez](https://github.com/EdCanCe/This-is-not-a-repo...again/commit/4a9f7d32f645be385263986363079049aeef48b8)
+
+**Laboratorio 28:**
+Éste laboratori fue elaborado en conjunto con [Emilio Santiago López Quiñonez y Manuel Bajos Rivera](https://github.com/Manu090704/not_a_repo/commit/b784989962cfd16aadacd2318bad8e8b7100aa6e)
