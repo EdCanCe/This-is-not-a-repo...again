@@ -1,5 +1,440 @@
 <h1 class="text-4xl font-bold text-center text-slate-100 mb-6">PREGUNTAS</h1>
-<p class="font-bold">¿Qué otras formas de autentificación existen?</p>
-<p class="mt-2">Utilizando tokens, como los JSON Web Tokens. En éste se mandan datos que se componen de 3 partes. Un encabezado(tiene información de cómo procesar el token), una carga útil(información sobre alguna entidad, objeto o usuario) y una firma(la codificación base64Url del encabezado y la carga útil y las firma usando un secreto); </p>
 
-<p class="block mt-4">Esteban, D. (2025, February 19). Protege tus rutas en Node.js con autenticación JWT y Express 👮🔒. Medium. <a class="text-slate-400" href="https://medium.com/@diego.coder/autenticaci%C3%B3n-en-node-js-con-json-web-tokens-y-express-ed9d90c5b579">https://medium.com/@diego.coder/autenticaci%C3%B3n-en-node-js-con-json-web-tokens-y-express-ed9d90c5b579</a></p>
+<ol>
+
+    <li class="mb-5"><span class="font-bold italic">¿Cuál es la diferencia entre Internet y la World Wide Web?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>El internet es una red mundial, la cual usa varios protocolos, mientras que la World Wide Web es el sistema que interconecta muchísimas páginas web a través del mismo internet.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Cuáles son las partes de un URL?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Primeramente tiene un protocolo, el cuál es el método por el cuál se van a intercambiar los datos. Posteriormente sigue el dominio, el cuál representa el servidor web al cuál se le solicitaron los datos. En caso de que se quiera acceder a un puerto en específico, se tendría que poner 2 puntos, y posteriormente el número del puerto a acceder, en caso de que no se especifique el puerto de entrada, se usaría el puerto 443 para HTTPS y 80 para HTTP. Después está la ruta, que antes representaba la dirección de un archivo, sin embargo, hoy en día es una abstracción que manejan los servidores. Casi para finalizar se encuentran los parámetros, los cuales son una lista de variables con valores; se separan con un ampersand(&). El último elemento de una URL son las anclas, éstas representan un punto o marcador en la página, éste es usado para que cuando se cargue la página, el navegador se desplace hasta dicho punto.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Cada método realiza una función diferente, éstos son sus propósitos:</p>
+            <ul class="pl-6">
+                <li><span class="font-bold">GET:</span> Solicita un recurso en específico al servidor, es decir, únicamente obtienen datos.</li>
+                <li><span class="font-bold">HEAD:</span> Muy parecido al método GET, obtiene datos, sin embargo, obtiene únicamente la cabeza de la respuesta, sin el cuerpo.</li>
+                <li><span class="font-bold">POST:</span> Su función es enviar datos al servidor, donde muchas veces efectúa algún cambio en el servidor.</li>
+                <li><span class="font-bold">PUT:</span> Es usado para añadir, o en caso de ya existir un elemento destino, reemplazarlo.</li>
+                <li><span class="font-bold">PATCH:</span> Éste método es usado para modificar parcialmente un recurso.</li>
+                <li><span class="font-bold">DELETE:</span> Como indica su nombre, es usado para borrar un elemento.</li>
+            </ul>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>El método POST, ya que el método tiene que ser un método seguro, porque si se usara un método como el GET, datos sensibles como la contraseña se podrían ver comprometidos, ya que en el método GET, los datos saldrían en la barra de direcciones.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Utilizan el método GET, ya que están solicitándole al servidor donde se aloja dicha página, los datos de la misma.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Significa un "ok", en otras palabras, que no ha sucedido ningún error y que la solicitud fue exitosa.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>No necesariamente, en algunos casos sí. Primeramente se tiene que definir que el error 404 significa que no se ha encontrado el recurso solicitado. En el caso de que el usuario haya presionado un botón o enlace dentro de la aplicación web, y eso lo llevó al error, entonces SÍ se tendría que corregir, ya que la misma aplicación estaría llevándolo a un vínculo roto que no existe. En caso de que el sitio al que intentó acceder el usuario lo colocó él mismo en la URL, entonces no se tendría que corregir nada, ya que el mismo usuario fue el que intentó acceder a algo que no existe.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Sí, el error 500 significa que tuvo algún tipo de error interno en el servidor, por lo que el desarrollador tendría que configurar el servidor de manera correcta para poder prevenir este tipo de errores.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Significa que es un elemento el cuál no es recomendado su uso debido a que dicho elemento podría llegar a ser removido y perder compatibilidad con los navegadores.</p>
+            <p>Algunos de éstos elementos son:</p>
+            <ul class="pl-6">
+                <li><span class="font-bold">font:</span> especificaba la fuente a usar en la página, junto con su color y tamaño.</li>
+                <li><span class="font-bold">center:</span> centraba un texto.</li>
+                <li><span class="font-bold">big:</span> definía un texto en un tamaño grande.</li>
+                <li><span class="font-bold">u:</span> subrayaba el texto dentro de esta etiqueta.</li>
+            </ul>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>En primera instancia, hay nuevas etiquetas que tienen distintas funciones cada una, sin embargo, hay más diferencias, tales como:</p>
+            <ul class="pl-6">
+                <li>HTML4 no tiene soporte para audio y video mientras HTML5 sí.</li>
+                <li>HTML4 era compatible con vectores como Flash y VML, mientras que HTML5 es compatible con SVG, canvas y otros elementos vectoriales.</li>
+                <li>HTML5 permite crear diversas figuras, como rectángulos, triángulos o círculos, mientras que HTML4 no.</li>
+                <li>La ejecución de JavaScript en HTML5 se realiza en hilos separados, mientras que en HTML4 se ejecutan en el mismo.</li>
+                <li>HTML4 usaba únicamente las cookies y el caché del navegador para almacenar información de forma temporal; HTML5 usa la misma base de datos de la página, el almacenamiento local y el caché.</li>
+                <li>HTML5 soporta los caracteres de UTF-8, mientras que HTML4 usa la codificación de caracteres ASCII.</li>
+            </ul>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué componentes de estructura y estilo tiene una tabla?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Dentro de una tabla existen varios componentes, los cuales son los siguientes:</p>
+            <table>
+                <caption>Elementos de una tabla</caption>
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>caption</td>
+                        <td>Describe el propósito de la tabla, puede ayudar a los usuarios a decidir si ver o no dicha tabla.</td>
+                    </tr>
+                    <tr>
+                        <td>thead</td>
+                        <td>Contiene los elementos de la primera fila de la tabla, en otras palabras, su cabeza.</td>
+                    </tr>
+                    <tr>
+                        <td>colgroup</td>
+                        <td>Como dice su nombre, es usado para definir un grupo de columnas.</td>
+                    </tr>
+                    <tr>
+                        <td>col</td>
+                        <td>Define las columnas que se tendrán dentro de colgroup.</td>
+                    </tr>
+                    <tr>
+                        <td>th</td>
+                        <td>Son las etiquetas usadas en las celdas de la cabeza de la tabla.</td>
+                    </tr>
+                    <tr>
+                        <td>tbody</td>
+                        <td>Contiene los elementos del cuerpo de la tabla.</td>
+                    </tr>
+                    <tr>
+                        <td>tr</td>
+                        <td>Son las etiquetas usadas para definir las filas en una tabla.</td>
+                    </tr>
+                    <tr>
+                        <td>td</td>
+                        <td>Son las etiquetas usadas en las celdas del cuerpo de la tabla.</td>
+                    </tr>
+                    <tr>
+                        <td>tfoot</td>
+                        <td>Contiene los elementos de la última fila de la tabla, en otras palabras, el pie de la tabla.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Cuáles son los principales controles de una forma HTML5?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Los controles de forma son los elementos usados para ingresar información en los formularios, algunos de éstos son:</p>
+            <ul class="pl-6">
+                <li><span class="font-bold">button:</span> Un botón.</li>
+                <li><span class="font-bold">checkbox:</span> Campo donde se puede seleccionar entre un valor activado y desactivado.</li>
+                <li><span class="font-bold">radio:</span> Campo donde se escoge un valor entre varios datos más.</li>
+                <li><span class="font-bold">text:</span> Un campo de texto simple para ingresar una línea de texto.</li>
+                <li><span class="font-bold">password:</span> Campo para ingresar contraseñas, oculta los caracteres.</li>
+                <li><span class="font-bold">email:</span> Campo especializado para correos electrónicos, con validación de formato.</li>
+                <li><span class="font-bold">number:</span> Campo para ingresar únicamente números.</li>
+                <li><span class="font-bold">date:</span> Selector de fecha.</li>
+                <li><span class="font-bold">file:</span> Permite seleccionar archivos desde el dispositivo del usuario.</li>
+                <li><span class="font-bold">submit:</span> Botón que envía el formulario.</li>
+            </ul>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS? </span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>En caso de ser posible, no usarlo, ya que puede causar que ciertos estilos no se apliquen debido a la jerarquía de prioridades. En dado caso, mejor revisar qué está afectando el estilo del elemento para modificarlo y evitar así el uso del !important.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Se tiene que escoger con cuidado ya que podría causar problemas de accesibilidad. En caso de que un usuario use algún lector de pantalla, el fondo de pantalla no podrá ser leído por éste último, por lo que, si la información que contenga el fondo de pantalla es importante, lo mejor sería que se describa de forma semántica.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Depende de lo que se quiera hacer, ya que hay casos donde conviene que una medida sea absoluta, y hay casos donde conviene que sea relativa. Para poner un ejemplo, el tamaño de una imagen podría ponerse de un tamaño relativo, es decir, que tenga un tamaño distinto dependiendo de la pantalla donde se vea, mientras que el texto conviene que sea de un tamaño absoluto.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Debido a que una versión no minimizada cuenta con saltos de línea y espacios, los cuales no son necesarios al momento de renderizar la hoja de estilos, y solo hacen que pese más el archivo. Es decir, una versión minimizada contiene la información necesaria para la renderización, sin datos innecesarios que hagan más pesado el archivo.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué diferencias y semejanzas hay entre Java y JavaScript?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Algunas de las diferencias son el tipado, en Java se ocupa declarar el tipo de variable, mientras que en JavaScript basta únicamente con declarar una variable. Java está oriendato al POO, en comparación con JavaScript que es un lenguaje de scripting usado para crear páginas web.
+            Las aplicaciones de Java se ejecutan en una máquina virtual, lo cuál permite que se pueda ejecutar en un navegador, justo como JavaScript. De la misma manera, Java es usado para el backend más que nada, mientras que JavaScript es usado tanto para backend, como para frontend.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Dentro de los métodos del objeto Date se pueden encontrar los siguientes:</p>
+            <ul class="pl-6">
+                <li><span class="font-bold">now(): </span>devuelve un timestamp del momento en que se ejecuta.</li>
+                <li><span class="font-bold">getFullYear(): </span>devuelve el año de la fecha.</li>
+                <li><span class="font-bold">setHours(): </span>define la hora en la fecha.</li>
+                <li><span class="font-bold">getMinutes(): </span> devuelve los minutos de la fecha.</li>
+                <li><span class="font-bold">setMonth(): </span>define el mes de la fecha.</li>
+            </ul>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Dentro de los métodos de un arreglo se pueden encontrar los siguientes:</p>
+            <ul class="pl-6">
+                <li><span class="font-bold">pop(): </span>elimina el último elemento en en arreglo.</li>
+                <li><span class="font-bold">push(): </span>añade un elemento al arreglo.</li>
+                <li><span class="font-bold">reverse(): </span>invierte la posición de los elementos dentro del arreglo.</li>
+                <li><span class="font-bold">sort(): </span>ordena los elementos del arreglo.</li>
+                <li><span class="font-bold">fill(): </span>llena el arreglo de un elemento en específico.</li>
+            </ul>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Cómo se declara una variable con alcance local dentro de una función? </span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Se declara con la palabra reservada "let" seguida del nombre de la variable, y si se le quiere asignar un valor se pone el símbolo igual("=") junto con el valor a ser asignado.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Implica que puede ser usada por otro fragmento de código dentro del documento actual, lo que significa que puede ser consultada y modificada, por lo que se le tiene que ser cuidadoso y escoger cuando se deba utilizar para declarar una variable global. Hay casos donde en específico se tendrá que usar una variable global, pero en caso de que no sea necesario, lo mejor sería declararla como local, ya que así se podrían evitar fugas de datos.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">Describe lo que es material design:</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Material design es un sistema de diseño, creado por Google, el cuál es usado para poder construir experiencias digitales de alta calidad para Android, iOS, Flutter y páginas web.</p>
+            <p>Tiene componentes, los cuales son interactivos, los cuales permiten crear interfaces de usuario; incluyen un sistema propio de estados, lo que permite que se puedan comunicar con estados de selección, enfoque, hover, arrastrar, etc.</p>
+            <p>De la misma manera, también cuenta con temas, lo cuál hace que sea fácil de personalizar para darle los colores y el estilo de una marca personal.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las formas antes de enviar los datos al servidor?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Ya que permiten que si hay un error en el formato de los inputs que hizo el usuario comparados con los requeridos para subirlos a la base de datos, se le pueda alertar al usuario para que pueda corregirlos de inmediato. De igual manera, se podría implementar otra validación dentro del lado del servidor, sin embargo, ya que se tendrían que enviar los datos, y luego recibir una respuesta, podría añadir un retraso para que el usuario corriga los datos.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Se puede saltar al incorporar validaciones en de otras formas. Por ejemplo, realizar la validación con un patrón de una expresión regular dentro del archivo HTML, usar una API, o realizar la validación en el lado del servidor.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Debido a que perimte que se pueda dar una respuesta inmediata a un usuario en caso de que alguno de los inputs no cumpla con las especificaciones que pide el formulario.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">Describe el archivo package.json:</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>El archivo package.json tiene la información del proyecto en que se está trabajando. Tiene información de su versión, su nombre, su creador, la licencia que usa, los scripts que ejecuta, etc. Y algo que cabe la pena mencionar, es que también es usado para guardar la información de los paquetes de npm que usa.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué otros templating engines existen para node?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Hay otros template engines como:</p>
+            <ul class="pl-6">
+                <li>Mustache</li>
+                <li>Handlebars</li>
+                <li>doT</li>
+                <li>Nunjucks</li>
+                <li>Underscore</li>
+                <li>Pug</li>
+                <li>Webix</li>
+                <li>Hogan</li>
+                <li>Marko</li>
+                <li>JsRender</li>
+                <li>Squirrelly</li>
+                <li>Template7</li>
+            </ul>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué beneficios encuentras en el estilo MVC?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Permite separar el proyecto por sus componentes, su modelo, sus controladores y sus rutas; para de ésta manera tener mayor escalabilidad y organización dentro del código.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Encuentras alguna desventaja en el estilo arquitectónico MVC?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            En lo que una persona se acostumbra a trabajar con dicho estilo arquitectónico, puede llegar a ser difícil emplearlo de manera correcta o dividir cada petición con una sola funcionalidad.        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>En primer lugar, permite tener una estructura en el proyecto, haciendo que sea más fácil la edición en caso de que sea necesaria. También hace más fácil la mantenibilidad; ya que, al tener todo en un mismo lugar, los modelos mantienen la lógica de la base de datos.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué es SQL injection y cómo se puede prevenir?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Es cuando se quiere hacer uso de alguna variable, que enrealidad es un código SQL, lo que hace que la computadora lo interprete como que lo tiene que ejecutar, dejando así muchas vulenrabilidades y posibles fugas de datos. Se puede prevenir al especificar qué se va a usar de variables en otro apartado, como hacer values(?, ?), [val1, val2], también se puede dentro del servidor, implementar un script para validar que las variables a usar no sean scripts de SQL.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué otras formas de autentificación existen?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Utilizando tokens, como los JSON Web Tokens. En éste se mandan datos que se componen de 3 partes. Un encabezado(tiene información de cómo procesar el token), una carga útil(información sobre alguna entidad, objeto o usuario) y una firma(la codificación base64Url del encabezado y la carga útil y las firma usando un secreto);</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿En qué consiste el control de acceso basado en roles?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>En dividir una aplicación para que se puedan tener acceso a diferentes funcionalidades dependiendo del usuario y el rol que tiene en una jerarquía. Es decir, entre mayor sea su rango, va a tener acceso a más o distintas funcionalidades</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">Investiguen y describan 2 sistemas, uno que aplique RBAC y uno que no. Realicen un análisis de las ventajas y desventajas de cada uno con respecto al control de acceso.</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>El RBAC se aplica por ejemplo en Canvas, el profesor tiene acceso a todo el contenido del curso, mientras que el alumno solo a lo que el profesor le deja ver. Aquí puede haber como ventaja que solo se le da el acceso al estudiante a lo que el profesor quiere, pero en caso de que el profesor no sepa usar canvas, puede tornarse en una desventaja al no permitir que el alumno vea cosas que le sean necesarias.</p>
+            <p>No se aplica en X(twitter), ya que todos tienen el mismo nivel y tienen acceso a las mismas funciones. Ésto puede dar como ventaja que al usuario se le haga más simple el sistema y pueda aprenderlo a usar de manera más sencilla, y como desventaja es que se podría tener dificultad en filtrar publicaciones que no sean aptas para todo público.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Que permite hacer consultas a la base de datos sin tener que recargar la página, lo que mejora la experiencia del usuario, ya que así puede hacer búsquedas o tener vistas paginadas de información. En conclusión, permite más flexibilidad a la hora de desarrollar las aplicaciones.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad, del lado del cliente o del lado del servidor?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>En caso de que el usuario sepa dónde o cómo se está haciendo la consulta, podría modificar el fetch para solicitar datos a los que normalmente no debería tener acceso, por lo mismo, se tienen que implementar validaciones de seguridad del lado del servidor, para que de ésta manera se pueden prevenir éste tipo de eventos.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué es JSON?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>"JavaScript Object Notation" es un formato de dato, éste es sencillo de comprender para los humanos y las máquinas ya que tienen una estructura similar a la de un mapa o un arreglo, lo que permite tener datos de un objeto dependiendo de sus características y cualidades.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué ventajas y desventajas tiene la integración de tus aplicaciones web con servicios web desarrollados por terceros?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Permiten obtener datos que no contamos en nuestra base de datos, lo que nos ahorran tiempo para conseguirlos, filtrarlos y escribir métodos para obtenerlos; en conclusión, nos ahorran el tiempo para desarrollar aplicaciones, sin embargo, estamos a la merced de sus servicios web, por lo que si por alguna razón el servidor del servicio web deja de funcionar, nuestra aplicación podría dejar de funcionar también.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Qué utilidad tiene un trigger (ventajas)?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Puede ser útil para la generación de bitácoras sobre actualizaciones en la base de datos, lo que a su vez va a permitir que se tenga mayor seguridad en la aplicación.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿Tipos de triggers?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Depende del momento de la ejecución del trigger, ya sean antes o después del evento.</p>
+        </details>
+    </li>
+
+    <li class="mb-5"><span class="font-bold italic">¿En que casos NO son de utilidad?</span>
+        <details class="text-sm">
+            <summary>Respuesta:</summary>
+            <p>Cuando el uso de los triggers puede comprometer los datos y la legalidad de los mismos o cuando la lógica se volvería muy difícil de mantener ya que aumentaría la complejidad de la misma.</p>
+        </details>
+    </li>
+
+</ol>
+
+<h1 class="text-2xl font-bold text-center text-slate-100 mt-10 mb-6" id="referencias">Referencias:</h1>
+
+<div class="flex flex-col gap-5 text-sm">
+    <p>Internet - Glosario de MDN Web Docs: Definiciones de términos relacionados con la Web | MDN. (2023, November 13). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Glossary/Internet">https://developer.mozilla.org/es/docs/Glossary/Internet</a></p>
+    <p>World Wide Web - Glosario de MDN Web Docs: Definiciones de términos relacionados con la Web | MDN. (n.d.). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Glossary/World_Wide_Web">https://developer.mozilla.org/es/docs/Glossary/World_Wide_Web</a></p>
+    <p>¿Qué es una URL? - Aprende desarrollo web | MDN. (n.d.). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL">https://developer.mozilla.org/es/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL</a></p>
+    <p>Métodos de petición HTTP - HTTP | MDN. (2023, July 24). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Web/HTTP/Methods">https://developer.mozilla.org/es/docs/Web/HTTP/Methods</a></p>
+    <p>Sending form data - Aprende desarrollo web | MDN. (n.d.). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data">https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data</a></p>
+    <p>200 OK - HTTP | MDN. (2023b, February 23). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Web/HTTP/Status/200">https://developer.mozilla.org/es/docs/Web/HTTP/Status/200</a></p>
+    <p>404 not found - HTTP | MDN. (2024, July 28). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Web/HTTP/Status/404">https://developer.mozilla.org/es/docs/Web/HTTP/Status/404</a></p>
+    <p>500 Internal Server Error - HTTP | MDN. (2023, February 16). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Web/HTTP/Status/500">https://developer.mozilla.org/es/docs/Web/HTTP/Status/500</a></p>
+    <p>Experimental, deprecated, and obsolete - MDN Web Docs | MDN. (2025, January 31). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete">https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete</a></p>
+    <p>GeeksforGeeks. (2021, August 25). What are the HTML tags that deprecated in HTML5 ? GeeksforGeeks. <a class="underline text-blue-300" href="https://www.geeksforgeeks.org/what-are-the-html-tags-that-deprecated-in-html5/">https://www.geeksforgeeks.org/what-are-the-html-tags-that-deprecated-in-html5/</a></p>
+    <p>Boada, D., & Boada, D. (2025, January 16). La diferencia entre HTML y HTML5. Tutoriales Hostinger. <a class="underline text-blue-300" href="https://www.hostinger.mx/tutoriales/diferencia-entre-html-y-html5">https://www.hostinger.mx/tutoriales/diferencia-entre-html-y-html5</a></p>
+    <p>: The Table element - HTML: HyperText Markup Language | MDN. (2025, February 12). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table</a></p>
+    <p>Controles de formulario originales - Aprende desarrollo web | MDN. (n.d.). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls">https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls</a></p>
+    <p>Can I use. . . Support tables for HTML5, CSS3, etc. (n.d.). <a class="underline text-blue-300" href="https://caniuse.com/?compare=firefox+135&compareCats=all#results">https://caniuse.com/?compare=firefox+135&compareCats=all#results</a></p>
+    <p>Guerrero, A. C. (2015, July 20). Ciclo de vida de un sistema de información • gestiopolis. Gestiopolis. <a class="underline text-blue-300" href="https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/">https://www.gestiopolis.com/ciclo-de-vida-de-un-sistema-de-informacion/</a></p>
+    <p>¿Qué es el SDLC? - Explicación del ciclo de vida del desarrollo de software - AWS. (n.d.). Amazon Web Services, Inc. <a class="underline text-blue-300" href="https://aws.amazon.com/es/what-is/sdlc/">https://aws.amazon.com/es/what-is/sdlc/</a></p>
+    <p>¿Qué es el SDLC? - Explicación del ciclo de vida del desarrollo de software - AWS. (n.d.). Amazon Web Services, Inc. <a class="underline text-blue-300" href="https://aws.amazon.com/es/what-is/sdlc/">https://aws.amazon.com/es/what-is/sdlc/</a></p>
+    <p>background-image - CSS | MDN. (2025, February 10). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Web/CSS/background-image">https://developer.mozilla.org/es/docs/Web/CSS/background-image</a></p>
+    <p>background-image - CSS | MDN. (2025, February 10). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Web/CSS/background-image">https://developer.mozilla.org/es/docs/Web/CSS/background-image</a></p>
+    <p>GeeksforGeeks. (2025, January 9). Difference between Java and JavaScript. GeeksforGeeks. <a class="underline text-blue-300" href="https://www.geeksforgeeks.org/difference-between-java-and-javascript/">https://www.geeksforgeeks.org/difference-between-java-and-javascript/</a></p>
+    <p>Date - JavaScript | MDN. (2025b, January 23). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date</a></p>
+    <p>Array - JavaScript | MDN. (2024, December 19). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</a></p>
+    <p>Gramática y Tipos - JavaScript | MDN. (2024, July 28). MDN Web Docs. <a class="underline text-blue-300" href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Grammar_and_types">https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Grammar_and_types</a></p>
+    <p>Material Design - Version 2. (n.d.). Material Design. <a class="underline text-blue-300" href="https://m2.material.io/design/introduction">https://m2.material.io/design/introduction</a></p>
+    <p>Validación de formularios de datos - Aprende desarrollo web | MDN. (n.d.). MDN Web Docs. <a class="underline text-blue-300">https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Form_validation</a></p>
+    <p>Ivanovs, A. (2023, January 4). Top 13 Templating Engines for JavaScript To Improve and Simplify Your Workflow 2023. Colorlib. <a class="underline text-blue-300" href="https://colorlib-com.translate.goog/wp/top-templating-engines-for-javascript/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc">https://colorlib-com.translate.goog/wp/top-templating-engines-for-javascript/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc</a></p>
+    <p>Esteban, D. (2025, February 19). Protege tus rutas en Node.js con autenticación JWT y Express 👮🔒. Medium. <a class="underline text-blue-300" href="https://medium.com/@diego.coder/autenticaci%C3%B3n-en-node-js-con-json-web-tokens-y-express-ed9d90c5b579">https://medium.com/@diego.coder/autenticaci%C3%B3n-en-node-js-con-json-web-tokens-y-express-ed9d90c5b579</a></p>
+    <p>JSON. (n.d.). <a class="underline text-blue-300" href="https://www.json.org/json-en.html">https://www.json.org/json-en.html</a></p>
+    <p class="overflow-hidden">Latam, A. (2023, November 15). Qué es y cómo usar un trigger en SQL. Alura. <a class="underline text-blue-300" href="https://www.aluracursos.com/blog/que-es-y-como-trigger-en-sql#:~:text=El%20Trigger%20en%20MySQL%20es,antes%20o%20despu%C3%A9s%20del%20evento.">https://www.aluracursos.com/blog/que-es-y-como-trigger-en-sql#:~:text=El%20Trigger%20en%20MySQL%20es,antes%20o%20despu%C3%A9s%20del%20evento.</a></p>
+
+</div>

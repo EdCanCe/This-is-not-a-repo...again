@@ -1,6 +1,5 @@
 module.exports = (req, res, next) => {
-    console.log("AAAA: ");
-    console.log(req.session.privileges);
+    console.log("AAA", req.session.privileges);
     for (let privilege of req.session.privileges) {
         if (privilege.summary == "Añade votación") {
             return next();
