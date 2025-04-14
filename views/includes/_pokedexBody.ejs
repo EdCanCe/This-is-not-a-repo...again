@@ -54,6 +54,8 @@
 
         console.log(`https://pokeapi.co/api/v2/pokemon/${pokeInput.value}`);
 
+        container.innerHTML = "Buscando...";
+
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokeInput.value}`, {
             method: "GET",
             headers: {
@@ -61,10 +63,11 @@
             },
         })
             .then((result) => {
-                container.innerHTML = "";
                 return result.json(); //Regresa otra promesa
             })
             .then((data) => {
+                container.innerHTML = "";
+
                 addData("h1", "text-center font-bold text-6xl mt-4", data.name.toUpperCase());
 
                 const sprite = data.sprites.other?.["official-artwork"]?.front_default || data.sprites.front_default;
@@ -83,7 +86,7 @@
                 console.log(data);
             })
             .catch((err) => {
-                console.log("err");
+                container.innerHTML = "";
                 addData("p", "text-center", "No hay ningún pokemon con ese nombre :(");
                 addData("p", "text-center", "Pero esta es la primera imagen que regresa google fotos de su búsqueda :)");
             });
