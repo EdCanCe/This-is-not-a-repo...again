@@ -66,8 +66,9 @@ exports.get_distro_list = (req, res, next) => {
 
     Distro.fetchAll() // Obtiene la query de la base de datos
         .then(([rows, list_distro]) => { // Si la query es exitosa, manda a renerizarla con los datos de su row
+            console.log(rows);
             res.render('list_distro', {
-                entrevistas: rows,
+                entrevistas: rows[0],
                 datosLog: datosLog
             });
         })

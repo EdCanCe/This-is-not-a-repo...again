@@ -20,14 +20,15 @@ exports.get_in = (req, res, next) => {
 
 exports.post_in = (req, res, next) => {
     User.fetchOne(req.body.username).then(([rows, fieldData]) => {
-        if(rows.length > 0){
-            bcrypt.compare(req.body.password, rows[0].passwd).then((doMatch) => {
+        console.log(rows);
+        if(rows[0].length > 0){
+            bcrypt.compare(req.body.password, rows[0][0].passwd).then((doMatch) => {
                 if (doMatch) {
-                    User.getPrivileges(rows[0].username).then(([privileges, fieldData]) => {
+                    User.getPrivileges(rows[0][0].username).then(([privileges, fieldData]) => {
                         req.session.isLoggedIn = true;
                         req.session.username = req.body.username;
-                        req.session.userID = rows[0].id;
-                        req.session.privileges = privileges;
+                        req.session.userID = rows[0][0].id;
+                        req.session.privileges = privileges[0];
                         req.session.message = "Ha iniciado sesión con éxito!";
                         console.log("Debud controller log: ");
                         console.log(req.session.privileges);
