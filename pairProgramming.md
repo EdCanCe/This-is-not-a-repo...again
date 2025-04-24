@@ -1,0 +1,7 @@
+ - Con Enrique Andrey Lira en este [commit](https://github.com/Andreylira08/laboratorios/commit/fd996531620ea3da9e1ed805cb342c8ac2775090).
+ - Con Emilio Santiago López Quiñonez en este [commit](https://github.com/EdCanCe/This-is-not-a-repo...again/commit/d9347787c15f7913f8a301cf2d317e8bf974a203).
+ - Con Emilio Santiago López Quiñonez en este [commit](https://github.com/EdCanCe/This-is-not-a-repo...again/commit/7d491591becb51f393aaedad998e3adc05c62171).
+ - Con Emilio Santiago López Quiñonez en este [commit](https://github.com/EdCanCe/WorkCells/commit/a7b8a15e70176357f7c517814b51026e73fb183b).
+ - Con mi equipo del proyecto en este [commit](https://github.com/EdCanCe/WorkCells/commit/d5c384e890820c368285c5dbadc375fd34087777).
+ - Con Emilio Santiago López Quiñonez en este [commit](https://github.com/EdCanCe/This-is-not-a-repo...again/commit/4a9f7d32f645be385263986363079049aeef48b8).
+ - Con Emilio Santiago López Quiñonez y Manuel Bajos Rivera en este [commit](https://github.com/Manu090704/not_a_repo/commit/b784989962cfd16aadacd2318bad8e8b7100aa6e)
